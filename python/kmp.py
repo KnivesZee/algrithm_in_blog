@@ -15,7 +15,7 @@ def getIndexOf(str1, str2):
     return i - j if j == len(str2) else -1
 
 def getNext(str2):
-    if len(str2) == 1:
+    if(len(str2) == 1):
         return [-1]
     next = [0] * len(str2)
     next[0] = -1
@@ -23,11 +23,12 @@ def getNext(str2):
     i = 2
     cn = 0
     while i < len(str2):
-        if str2[cn] == str2[i-1]:
-            next[i] = next[i-1] + 1
+        if str2[i-1] == str2[cn]:
+            cn += 1
+            next[i] = cn
             i += 1
         else:
-            if cn == -1:
+            if cn == 0:  #跳无可跳的时候
                 next[i] = 0
                 i += 1
             else:
