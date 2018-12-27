@@ -46,9 +46,9 @@ int* getNext(string str2){
    int cn = 0;
    while( i < lenOfStr2 ){
        if( str2[i - 1] == str2[cn] )
-           next[i++] = next[i-1] + 1;
+           next[i++] = ++cn;
        else{
-           if( cn == -1 )
+           if( cn == 0 ) // cn等于0的时候就跳无可跳了，不必等到-1
                next[i++] = 0;
            else
                cn = next[cn];
