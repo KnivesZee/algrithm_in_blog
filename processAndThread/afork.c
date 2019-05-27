@@ -15,6 +15,8 @@ int main(void) {
     if ((pid = fork()) < 0) {
         err_sys("fork error");
     } else if (pid == 0) {
+        phy = mem_addr_vir2phy((unsigned long)&var);
+        printf("real phy addr of var,before changed is : 0x%lx\n", phy);
         globvar++;
         var++;
     } else {
